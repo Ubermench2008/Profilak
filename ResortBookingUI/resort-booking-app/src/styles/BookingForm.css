@@ -1,0 +1,25 @@
+/* src/styles/BookingForm.css */
+.booking-modal {
+  width: 400px;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+.booking-modal h3 {
+  margin-top: 0;
+}
+.booking-modal input[type="file"] {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.status {
+  margin-bottom: 1rem;
+  color: #333;
+}
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.modal-buttons button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}

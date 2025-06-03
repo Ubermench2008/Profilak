@@ -1,0 +1,64 @@
+# === Node.js / React (UI) ===
+/ui/node_modules
+/ui/.pnp
+/ui/.pnp.js
+/ui/coverage
+/ui/build
+/ui/.env.local
+/ui/.env.development.local
+/ui/.env.test.local
+/ui/.env.production.local
+/ui/npm-debug.log*
+/ui/yarn-debug.log*
+/ui/yarn-error.log*
+
+# === Java / Gradle (Back) ===
+/back/HELP.md
+/back/.gradle
+/back/build/
+!/back/gradle/wrapper/gradle-wrapper.jar
+!/back/**/src/main/**/build/
+!/back/**/src/test/**/build/
+
+# === STS (Spring Tool Suite) ===
+/back/.apt_generated
+/back/.classpath
+/back/.factorypath
+/back/.project
+/back/.settings
+/back/.springBeans
+/back/.sts4-cache
+/back/bin/
+!/back/**/src/main/**/bin/
+!/back/**/src/test/**/bin/
+
+# === IntelliJ IDEA ===
+.idea/
+*.iws
+*.iml
+*.ipr
+/back/out/
+!/back/**/src/main/**/out/
+!/back/**/src/test/**/out/
+
+# === NetBeans ===
+/back/nbproject/private/
+/back/nbbuild/
+/back/dist/
+/back/nbdist/
+/back/.nb-gradle/
+
+# === VS Code ===
+.vscode/
+
+# === Общие исключения ===
+.gradle/
+*.gradle
+*.txt
+*.csv
+*.bat
+build/
+gradle/
+out/
+gradlew
+*.Zone.Identifier
