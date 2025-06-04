@@ -46,13 +46,14 @@ public class StudentController {
     public ResponseEntity<?> createRequest(
             Authentication auth,
             @RequestParam Long sessionId,
+            @RequestParam(value = "comment", required = false) String comment,
             @RequestParam("files") MultipartFile[] files
     ) {
         try {
             String email = auth.getName();
             User user = userService.getByEmail(email);
             Session session = sessionService.getById(sessionId);
-            BookingRequest req = requestService.createRequest(user, session);
+            BookingRequest req = requestService.createRequest(user, session, comment);
 
             for (var file : files) {
                 String path = fileStorageUtil.storeFile(file);

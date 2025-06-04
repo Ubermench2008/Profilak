@@ -8,9 +8,10 @@ export function getMyRequests() {
   return axios.get('/student/requests')
 }
 
-export function createRequest(sessionId, files) {
+export function createRequest(sessionId, files, comment) {
   const form = new FormData()
   form.append('sessionId', sessionId)
+  if (comment) form.append('comment', comment)
   files.forEach(file => form.append('files', file))
   return axios.post('/student/requests', form, {
     headers: { 'Content-Type': 'multipart/form-data' }

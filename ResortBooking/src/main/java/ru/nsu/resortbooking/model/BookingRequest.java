@@ -36,6 +36,9 @@ public class BookingRequest {
     @Column(nullable = false)
     private Boolean isPaid;
 
+    @Column(length = 2048)
+    private String comment;
+
     @Column(nullable = false)
     private LocalDateTime createdAt;
 }

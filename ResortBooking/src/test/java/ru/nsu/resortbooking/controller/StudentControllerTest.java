@@ -67,11 +67,11 @@ class StudentControllerTest {
 
         when(userService.getByEmail("test@mail.ru")).thenReturn(user);
         when(sessionService.getById(1L)).thenReturn(session);
-        when(requestService.createRequest(user, session)).thenReturn(request);
+        when(requestService.createRequest(user, session, "note")).thenReturn(request);
         when(fileStorageUtil.storeFile(any())).thenReturn("stored_file.txt");
 
         ResponseEntity<?> response = studentController.createRequest(
-                authentication, 1L, new MockMultipartFile[]{file});
+                authentication, 1L, "note", new MockMultipartFile[]{file});
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         verify(documentRepository, atLeastOnce()).save(any());

@@ -19,7 +19,7 @@ public class RequestService {
     private final SessionService sessionService;
 
     @Transactional
-    public BookingRequest createRequest(User user, Session session) {
+    public BookingRequest createRequest(User user, Session session, String comment) {
         boolean exists = requestRepository
                 .findByUserIdAndSessionId(user.getId(), session.getId())
                 .isPresent();
@@ -32,6 +32,7 @@ public class RequestService {
                 .session(session)
                 .status(RequestStatus.PENDING)
                 .isPaid(false)
+                .comment(comment)
                 .createdAt(LocalDateTime.now())
                 .build();
         return requestRepository.save(req);
