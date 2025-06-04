@@ -17,6 +17,7 @@ export default function RequestList({ requests, onPay }) {
             <p>С {r.session.startDate} по {r.session.endDate}</p>
             <p>Статус: {statusLabels[r.status]}</p>
             <p>{r.isPaid ? 'Оплачено' : 'Не оплачено'}</p>
+            {r.comment && <p>Комментарий: {r.comment}</p>}
           </div>
           {!r.isPaid && r.status === 'APPROVED' && (
             <button onClick={() => onPay(r.id)}>Оплатить</button>

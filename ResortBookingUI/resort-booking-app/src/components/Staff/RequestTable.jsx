@@ -23,6 +23,7 @@ export default function RequestTable({ requests, onApprove, onReject }) {
             <th>Вместимость</th>
             <th>Статус</th>
             <th>Опл.</th>
+            <th>Комментарий</th>
             <th>Документы</th>
             <th>Действия</th>
           </tr>
@@ -37,6 +38,7 @@ export default function RequestTable({ requests, onApprove, onReject }) {
               <td>{r.session.capacity}</td>
               <td>{statusLabels[r.status]}</td>
               <td>{r.isPaid ? 'Да' : 'Нет'}</td>
+              <td>{r.comment || ''}</td>
               <td>
                 <button onClick={() => setSelectedId(r.id)}>Просмотр</button>
               </td>

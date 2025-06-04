@@ -3,6 +3,7 @@ import '../../styles/BookingForm.css'
 
 export default function BookingForm({ sessionId, onSubmit, onClose }) {
   const [files, setFiles] = useState([])
+  const [comment, setComment] = useState('')
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
 
@@ -13,7 +14,7 @@ export default function BookingForm({ sessionId, onSubmit, onClose }) {
     setMessage('')
     setLoading(true)
     try {
-      await onSubmit(sessionId, files)
+      await onSubmit(sessionId, files, comment)
       setMessage('Заявка отправлена успешно')
     } catch (err) {
       const msg = err.response?.data?.error || 'Ошибка при отправке'
@@ -30,6 +31,11 @@ export default function BookingForm({ sessionId, onSubmit, onClose }) {
         {message && <p className="status">{message}</p>}
         <form onSubmit={handleSubmit}>
           <input type="file" multiple onChange={handleChange} />
+          <textarea
+            value={comment}
+            onChange={e => setComment(e.target.value)}
+            placeholder="Комментарий (необязательно)"
+          />
           <div className="modal-buttons">
             <button type="submit" disabled={loading}>
               {loading ? 'Отправка...' : 'Отправить'}

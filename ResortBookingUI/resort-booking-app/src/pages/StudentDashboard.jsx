@@ -34,8 +34,8 @@ export default function StudentDashboard() {
     setBookingSession(id)
   }
 
-  function handleSubmit(sessionId, files) {
-    createRequest(sessionId, files)
+  function handleSubmit(sessionId, files, comment) {
+    createRequest(sessionId, files, comment)
       .then(() => {
         setBookingSession(null)
         refreshAll()

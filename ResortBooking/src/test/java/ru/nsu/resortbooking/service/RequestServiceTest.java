@@ -55,13 +55,14 @@ class RequestServiceTest {
             return req;
         });
 
-        BookingRequest request = requestService.createRequest(user, session);
+        BookingRequest request = requestService.createRequest(user, session, "note");
 
         assertNotNull(request);
         assertEquals(RequestStatus.PENDING, request.getStatus());
         assertFalse(request.getIsPaid());
         assertNotNull(request.getCreatedAt());
         verify(requestRepository, times(1)).save(any(BookingRequest.class));
+        assertEquals("note", request.getComment());
     }
 
     @Test
@@ -74,7 +75,7 @@ class RequestServiceTest {
 
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> requestService.createRequest(user, session)
+                () -> requestService.createRequest(user, session, "note")
         );
         assertEquals("Вы уже подали заявку на этот сеанс", exception.getMessage());
         verify(requestRepository, never()).save(any());
